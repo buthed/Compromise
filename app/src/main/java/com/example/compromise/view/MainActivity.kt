@@ -1,7 +1,8 @@
-package com.example.compromise
+package com.example.compromise.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.compromise.R
 
 class MainActivity : AppCompatActivity() {
 
