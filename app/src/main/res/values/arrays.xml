@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="names">
+        <item>Veronica Dunlap</item>
+        <item>Alan Black</item>
+        <item>Zachary Kidd</item>
+        <item>Braiden Hanson</item>
+        <item>Izabella Buchanan</item>
+        <item>Jenny Dickerson</item>
+        <item>Cale Hull</item>
+        <item>Justice Gutierrez</item>
+        <item>Cole Curtis</item>
+        <item>Leonel Stewart</item>
+        <item>Casey Vincent</item>
+    </string-array>
+
+    <integer-array name="weight">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+    </integer-array>
+</resources>

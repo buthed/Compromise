@@ -2,6 +2,7 @@ package com.example.compromise.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.example.compromise.R
 import com.example.compromise.databinding.ActivityMainBinding
 import com.example.compromise.view.main.MainFragment
