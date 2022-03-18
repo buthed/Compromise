@@ -13,17 +13,19 @@ import kotlinx.android.synthetic.main.item_dispute.view.*
 class DisputeAdapter(
     private var onListItemClickListner: OnListItemClickListner,
     private var dispute: List<Dispute>
-): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+): RecyclerView.Adapter<DisputeAdapter.DisputeViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerItemViewHolder {
-        return RecyclerItemViewHolder(
-            LayoutInflater.from(parent.context)
-                .inflate(R.layout.item_dispute, parent, false)
-        )
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DisputeViewHolder {
+//        return RecyclerItemViewHolder(
+//            LayoutInflater.from(parent.context)
+//                .inflate(R.layout.item_dispute, parent, false)
+//        )
+        val binding: ItemDisputeBinding =  ItemDisputeBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return DisputeViewHolder(binding.root)
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        (holder as RecyclerItemViewHolder).bind(dispute[position])
+    override fun onBindViewHolder(holder: DisputeViewHolder, position: Int) {
+        (holder as DisputeViewHolder).bind(dispute[position])
     }
 
     override fun getItemCount() = dispute.size
@@ -41,6 +43,16 @@ class DisputeAdapter(
         fun onItemClicked(id:String)
     }
 
-
+    inner class DisputeViewHolder(view: View): RecyclerView.ViewHolder(view){
+        fun bind(dispute: Dispute){
+            ItemDisputeBinding.bind(itemView).apply {
+                nameDispute.text = dispute.name
+                weightDispute.text = dispute.weight.toString()
+                itemView.setOnClickListener{
+                    onListItemClickListner.onItemClick(dispute)
+                }
+            }
+        }
+    }
 }
 
