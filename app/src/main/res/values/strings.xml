@@ -6,5 +6,11 @@
     <string name="history_of_disputes">History of disputes</string>
     <string name="settings">Settings</string>
 
+    //Add dispute fragment
+    <string name="addDisputeItem">Add dispute item</string>
+    <string name="addDisputeName">Enter name</string>
+    <string name="addDisputeWeight">Enter weight</string>
+    <string name="addDisputeAdd">Add</string>
+
 
 </resources>

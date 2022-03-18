@@ -8,7 +8,7 @@
     <dimen name="endMarginRowContent">16dp</dimen>
     <dimen name="titletMargin">55dp</dimen>
     <dimen name="titleTextSize">40sp</dimen>
-    <dimen name="middleTextSize">40sp</dimen>
+    <dimen name="middleTextSize">32sp</dimen>
     <dimen name="defaultTextSize">20sp</dimen>
 
 </resources>

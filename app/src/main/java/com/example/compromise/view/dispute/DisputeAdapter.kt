@@ -11,11 +11,12 @@ import kotlinx.android.synthetic.main.item_dispute.view.*
 
 
 class DisputeAdapter(
-    private var onListItemClickListner: OnListItemClickListner,
-    private var dispute: List<Dispute>
+    private val onListItemClickListner: OnListItemClickListner,
+    private var dispute: MutableList<Dispute>
 ): RecyclerView.Adapter<DisputeAdapter.DisputeViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DisputeViewHolder {
+        //TODO переписать?
 //        return RecyclerItemViewHolder(
 //            LayoutInflater.from(parent.context)
 //                .inflate(R.layout.item_dispute, parent, false)
@@ -30,17 +31,9 @@ class DisputeAdapter(
 
     override fun getItemCount() = dispute.size
 
-    inner class RecyclerItemViewHolder(view: View): RecyclerView.ViewHolder(view) {
-        fun bind(dispute: Dispute){
-            ItemDisputeBinding.bind(itemView).apply {
-                nameDispute.text = dispute.name
-                weightDispute.text = dispute.weight.toString()
-            }
-        }
-    }
-
-    interface OnItemClickListner {
-        fun onItemClicked(id:String)
+    fun addDisputeItem(){
+        dispute.add(Dispute(1,"New",4,"COLOR"))
+        notifyDataSetChanged()
     }
 
     inner class DisputeViewHolder(view: View): RecyclerView.ViewHolder(view){
@@ -51,8 +44,16 @@ class DisputeAdapter(
                 itemView.setOnClickListener{
                     onListItemClickListner.onItemClick(dispute)
                 }
+                removeButton.setOnClickListener{
+                    removeDisputeItem(layoutPosition)
+                }
             }
         }
+
+    fun removeDisputeItem(position: Int){
+        dispute.removeAt(position)
+        notifyDataSetChanged()
+    }
     }
 }
 

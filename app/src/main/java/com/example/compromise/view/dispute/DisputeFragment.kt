@@ -14,6 +14,7 @@ import com.example.compromise.model.Dispute
 import com.example.compromise.viewmodel.DisputeViewModel
 import kotlinx.android.synthetic.main.fragment_dispute.*
 import java.util.*
+import kotlin.collections.ArrayList
 
 class DisputeFragment : Fragment() {
 
@@ -22,8 +23,6 @@ class DisputeFragment : Fragment() {
         get() {
             return _binding!!
         }
-
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,18 +36,22 @@ class DisputeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val data = listOf(
-            Dispute(1,"Earth",1,"#0069c0"),
-            Dispute(2,"Mars",1,"#0069c0"),
-            Dispute(3,"Pizza",1,"#0069c0"),
-            Dispute(4,"Rome",1,"#0069c0"),
-        )
-        binding.disputeRecyclerView.adapter = DisputeAdapter(
+        val data: MutableList<Dispute> = ArrayList()
+        data.add(Dispute(1,"Earth",1,"#0069c0"))
+        data.add(Dispute(2,"Mars",1,"#0069c0"))
+        data.add(Dispute(3,"Pizza",1,"#0069c0"))
+        data.add(Dispute(4,"Rome",1,"#0069c0"))
+
+        val adapter = DisputeAdapter(
             object : OnListItemClickListner {
                 override fun onItemClick(dispute: Dispute) {
-                    Log.d("AAA", "Click")
+                    Log.d("AAA", "Click"+dispute.id)
                 }
             }, data)
+        binding.disputeRecyclerView.adapter = adapter
+        binding.addDisputePosition.setOnClickListener{
+            adapter.addDisputeItem()
+        }
     }
 
     override fun onDestroyView() {
