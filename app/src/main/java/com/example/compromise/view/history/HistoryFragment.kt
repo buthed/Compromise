@@ -26,9 +26,4 @@ class HistoryFragment : Fragment() {
         return binding.root
     }
 
-    companion object {
-        fun newInstance(): HistoryFragment {
-            return HistoryFragment()
-        }
-    }
 }
